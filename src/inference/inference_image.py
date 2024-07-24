@@ -8,6 +8,7 @@ from torchvision import datasets,transforms,models,utils
 import numpy as np
 import matplotlib.pyplot as plt
 import os
+import cv2
 import pandas as pd
 from PIL import Image
 import sys
@@ -31,7 +32,7 @@ def main(args):
     model.eval()
 
     frame = cv2.imread(args.input_image)
-	frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+    frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
 
     face_detector = get_model("resnet50_2020-07-20", max_size=max(frame.shape),device=device)
     face_detector.eval()
